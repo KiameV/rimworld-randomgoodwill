@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<RG.EnableFactionRandomGoodwill>随机化派系友谊</RG.EnableFactionRandomGoodwill>
+	<RG.EnableFactionRandomGoodwillToolTip>添加一个设置，以设置在生成世界时是否将随机化派系的友谊。 通常情况下，中等派系中心是中立的，而侵略性派系中心则是敌对的。 在初始状态下为“开启”。</RG.EnableFactionRandomGoodwillToolTip>
+	<RG.EnableFactionDynamicColors>动态派系颜色</RG.EnableFactionDynamicColors>
+	<RG.EnableFactionDynamicColorsTip>敌对=红色；友好的部落=绿色； 友好的外来者=蓝色。\n\n友谊越高，颜色越深。</RG.EnableFactionDynamicColorsTip>
+
+</LanguageData>

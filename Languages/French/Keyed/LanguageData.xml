@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<RG.EnableFactionRandomGoodwill>Randomisation de relations des factions</RG.EnableFactionRandomGoodwill>
+	<RG.EnableFactionRandomGoodwillToolTip>Les colonies modérées seront généralement neutres et les colonies brutales le seront généralement encore hostiles mais avec quelques aléas en plus.</RG.EnableFactionRandomGoodwillToolTip>
+	<RG.EnableFactionDynamicColors>Couleurs dynamiques des factions</RG.EnableFactionDynamicColors>
+	<RG.EnableFactionDynamicColorsTip>Hostile = Rouge. Tribus amicales = Vert. Communauté d'étrangers amical = Bleu.</RG.EnableFactionDynamicColorsTip>
+
+</LanguageData>

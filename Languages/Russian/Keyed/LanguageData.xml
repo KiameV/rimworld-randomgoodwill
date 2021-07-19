@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<RG.EnableFactionRandomGoodwill>Случайное отношение фракций</RG.EnableFactionRandomGoodwill>
+	<RG.EnableFactionRandomGoodwillToolTip>Дружелюбные поселения как правило будут нейтральными, а агрессивные - враждебными, однако все равно будет присутствовать некоторая случяайность.</RG.EnableFactionRandomGoodwillToolTip>
+	<RG.EnableFactionDynamicColors>Динамические цвета фракций</RG.EnableFactionDynamicColors>
+	<RG.EnableFactionDynamicColorsTip>Враг = Красный. Дружественное племя =Зеленый. Дружественные чужеземецы = Синий.</RG.EnableFactionDynamicColorsTip>
+</LanguageData>

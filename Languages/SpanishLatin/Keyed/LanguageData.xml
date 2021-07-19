@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<RG.EnableFactionRandomGoodwill>Aleatorizar la buena voluntad de las facciones</RG.EnableFactionRandomGoodwill>
+	<RG.EnableFactionRandomGoodwillToolTip>Los asentamientos gentiles suelen ser neutrales y los asentamientos violentos suelen ser hostiles, pero se añade algo de aleatoriedad.</RG.EnableFactionRandomGoodwillToolTip>
+	<RG.EnableFactionDynamicColors>Colores de facción dinámicos</RG.EnableFactionDynamicColors>
+	<RG.EnableFactionDynamicColorsTip>Hostil = Rojo. Tribal Gentil = Verde. Forasteros Amistosos = Azul.</RG.EnableFactionDynamicColorsTip>
+
+</LanguageData>
