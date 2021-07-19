@@ -47,6 +47,9 @@ namespace RandomGoodwill
         public static Dictionary<string, FactionMinMax> Factions = new Dictionary<string, FactionMinMax>();
         public static bool createdFactions = false, populatedFactions = false;
 
+        private Vector2 scroll = Vector2.zero;
+        private float lastY;
+
         struct Buffers
         {
             public string Min, Max;
@@ -60,8 +63,8 @@ namespace RandomGoodwill
 
         public void DoWindowContents(Rect rect)
         {
-            string min = "min".Translate().CapitalizeFirst();
-            string max = "max".Translate().CapitalizeFirst();
+            string minString = "min".Translate().CapitalizeFirst();
+            string maxString = "max".Translate().CapitalizeFirst();
             CreateFactions();
             PopulateFactions();
             if (buffers == null || buffers.Length != Factions.Count * 2)
@@ -69,30 +72,39 @@ namespace RandomGoodwill
                 UpdateBuffers();
             }
             float half = rect.width * 0.5f;
-            float width = 250f;
+            float width = half - 10;
 
-            Listing_Standard list = new Listing_Standard { ColumnWidth = width};
-            list.Begin(new Rect(rect.x, rect.y, width, rect.height));
-            list.Gap(24);
-            list.CheckboxLabeled("RG.EnableFactionDynamicColors".Translate(), ref dynamicColors, "RFC.EnableFactionDynamicColorsTip".Translate());
-            list.Gap(24);
-            list.CheckboxLabeled("RG.EnableFactionRandomGoodwill".Translate(), ref randomGoodwill, "RFC.EnableFactionRandomGoodwillToolTip".Translate());
-            list.End();
+            float y = rect.y + 10f;
+            var r = new Rect(0, y, 200, 28);
+            Widgets.Label(r, "RG.EnableFactionDynamicColors".Translate());
+            Widgets.Checkbox(225, y - 2, ref dynamicColors);
+            r.width += 50;
+            if (Mouse.IsOver(r))
+                Widgets.DrawHighlight(r);
+            TooltipHandler.TipRegion(r, "RG.EnableFactionDynamicColorsTip".Translate());
+            y += 32;
+
+            r = new Rect(0, y, 200, 28);
+            Widgets.Label(r, "RG.EnableFactionRandomGoodwill".Translate());
+            Widgets.Checkbox(225, y - 2, ref randomGoodwill);
+            r.width += 50;
+            if (Mouse.IsOver(r))
+                Widgets.DrawHighlight(r);
+            TooltipHandler.TipRegion(r, "RG.EnableFactionRandomGoodwillToolTip".Translate());
+
 
             if (randomGoodwill)
             {
                 Widgets.Label(new Rect(half, rect.y, width, 28), "RG.GoodwillMinMax".Translate());
-                list = new Listing_Standard { ColumnWidth = width };
-                list.Begin(new Rect(half, rect.y + 34, width, rect.height));
+                Widgets.BeginScrollView(new Rect(half, rect.y + 34, width, rect.height - 10f), ref scroll, new Rect(0, 0, width, lastY));
+                lastY = 0;
                 int i = 0;
                 foreach (var f in Factions.Values)
                 {
                     if (f.Faction != null)
                     {
-                        list.Label(f.Faction.LabelCap);
-                        list.TextFieldNumericLabeled(min, ref f.Min, ref buffers[i], -100, 100);
-                        list.TextFieldNumericLabeled(max, ref f.Max, ref buffers[i + 1], -100, 100);
-                        if (list.ButtonText("RG.Default".Translate()))
+                        Widgets.Label(new Rect(0, lastY, 150, 28), f.Faction.LabelCap);
+                        if (Widgets.ButtonText(new Rect(200, lastY, 100, 28), "RG.Default".Translate()))
                         {
                             var gw = GetInitialGoodwill(f.Faction);
                             f.Min = gw;
@@ -100,11 +112,22 @@ namespace RandomGoodwill
                             buffers[i] = gw.ToString();
                             buffers[i + 1] = gw.ToString();
                         }
-                        list.GapLine(6);
+                        lastY += 32;
+                        Widgets.Label(new Rect(10, lastY, 150, 28), minString);
+                        Widgets.TextFieldNumeric(new Rect(200, lastY, 100, 28), ref f.Min, ref buffers[i], -100, 100);
+                        lastY += 30;
+                        Widgets.Label(new Rect(10, lastY, 150, 28), maxString);
+                        Widgets.TextFieldNumeric(new Rect(200, lastY, 100, 28), ref f.Max, ref buffers[i + 1], -100, 100);
+                        lastY += 38;
                         i += 2;
+                        if (i < buffers.Length)
+                        {
+                            Widgets.DrawLineHorizontal(0, lastY, 300);
+                            lastY += 8;
+                        }
                     }
                 }
-                list.End();
+                Widgets.EndScrollView();
             }
         }
 
