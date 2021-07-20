@@ -6,7 +6,7 @@
 <RG.GoodwillMinMax>Faction Goodwill Min/Max</RG.GoodwillMinMax>
 
 <RG.EnableFactionRandomGoodwill>Randomize Faction Goodwill</RG.EnableFactionRandomGoodwill>
-<RG.EnableFactionRandomGoodwillToolTip>Gentle settlements will usually be neutral and rough settlements will usually by hostile still but adds some randomness.</RG.EnableFactionRandomGoodwillToolTip>
 <RG.EnableFactionDynamicColors>Dynamic Faction Colors</RG.EnableFactionDynamicColors>
+<RG.EnableFactionDynamicColorsTip>Turns the settlement icon red when it is hostile.</RG.EnableFactionDynamicColorsTip>
 
 </LanguageData>

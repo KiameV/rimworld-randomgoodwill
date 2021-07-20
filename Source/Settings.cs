@@ -84,13 +84,8 @@ namespace RandomGoodwill
             TooltipHandler.TipRegion(r, "RG.EnableFactionDynamicColorsTip".Translate());
             y += 32;
 
-            r = new Rect(0, y, 200, 28);
-            Widgets.Label(r, "RG.EnableFactionRandomGoodwill".Translate());
+            Widgets.Label(new Rect(0, y, 200, 28), "RG.EnableFactionRandomGoodwill".Translate());
             Widgets.Checkbox(225, y - 2, ref randomGoodwill);
-            r.width += 50;
-            if (Mouse.IsOver(r))
-                Widgets.DrawHighlight(r);
-            TooltipHandler.TipRegion(r, "RG.EnableFactionRandomGoodwillToolTip".Translate());
 
 
             if (randomGoodwill)
