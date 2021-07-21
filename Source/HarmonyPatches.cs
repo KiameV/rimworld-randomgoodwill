@@ -63,14 +63,14 @@ namespace RandomGoodwill
         public static void Postfix(Faction __instance, ref Color __result)
         {
             if (!Settings.dynamicColors ||
-                __instance.def.isPlayer)
+                __instance.IsPlayer)
             {
                 return;
             }
 
-            if (__instance.HostileTo(Faction.OfPlayer))
+            if (__instance.HostileTo(Faction.OfPlayerSilentFail))
             {
-                float goodwill = GoodWillToColor(__instance.GoodwillWith(Faction.OfPlayer));
+                float goodwill = GoodWillToColor(__instance.GoodwillWith(Faction.OfPlayerSilentFail));
                 __result = new Color(0.75f, goodwill, goodwill);
             }
         }
